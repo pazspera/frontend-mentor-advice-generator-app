@@ -71,12 +71,11 @@ body {
   margin-bottom: 2rem;
 }
 
-@media (min-width: 1024px) {
-  .advice-card {
-    max-width: 30rem;
-  }
-}
-
+/* @media(min-width: 1024px) {
+    .advice-card {
+        max-width: 30rem;
+    }
+} */
 .main-content {
   background-color: #323a49;
   display: -webkit-box;
