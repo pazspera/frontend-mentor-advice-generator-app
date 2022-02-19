@@ -15,4 +15,51 @@ body {
   margin: 0;
   background-color: #323a49;
 }
+
+.advice-card {
+  background-color: #4e5d73;
+  max-width: 22.5rem;
+  padding: 2rem;
+  font-family: "Manrope", sans-serif;
+  border-radius: 0.8rem;
+}
+
+.advice-card__number, .advice-card__text {
+  margin: 0;
+  text-align: center;
+}
+
+.advice-card__number {
+  color: #52ffa8;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.15rem;
+  font-size: 0.75rem;
+}
+
+.advice-card__text {
+  color: #CEE3E9;
+  font-size: 1.5rem;
+  margin: 2rem 0;
+}
+
+@media (min-width: 1024px) {
+  .advice-card {
+    max-width: 30rem;
+  }
+}
+
+.main-content {
+  background-color: #323a49;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+}
 /*# sourceMappingURL=main.css.map */

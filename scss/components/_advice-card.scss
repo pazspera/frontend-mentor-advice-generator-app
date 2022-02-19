@@ -1,0 +1,33 @@
+.advice-card{
+    background-color: $backgroundCard;
+    max-width: 22.5rem;
+    padding: 2rem;
+    font-family: $fontText;
+    border-radius: 0.8rem;
+
+    &__number, 
+    &__text {
+        margin: 0;
+        text-align: center;
+    }
+
+    &__number {
+        color: $neonGreen;
+        text-transform: uppercase;
+        font-weight: 800;
+        letter-spacing: 0.15rem;
+        font-size: 0.75rem;
+    }
+
+    &__text {
+        color: $white;       
+        font-size: 1.5rem;
+        margin: 2rem 0;
+    }
+}
+
+@media(min-width: 1024px) {
+    .advice-card {
+        max-width: 30rem;
+    }
+}
