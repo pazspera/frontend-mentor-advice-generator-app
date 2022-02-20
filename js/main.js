@@ -1,15 +1,3 @@
-/* 
-    When .dice-btn is clicked, send a request to the API
-    We get a slip object
-        id: advice number
-        advice: advice text
-    
-    When we get the data, we update the html text content with the return values
-
-    Call the function on DOMcontentloaded to have an advice on load
-    Also add an event listener to .dice-btn
-*/
-console.log("hello");
 /* ------ VARIABLES ------ */
 const d = document;
 const URL_ADVICE = "https://api.adviceslip.com/advice";
@@ -26,7 +14,7 @@ const getAdvice = async () => {
 		let data = await res.json();
 		// Gets the slip obj from the data
 		let adviceObj = data.slip;
-		
+
 		if (!res.ok) {
 			throw {
 				status: res.status,
@@ -46,3 +34,11 @@ const getAdvice = async () => {
 /* ------ CODE ------ */
 // Gets an advice on DOM load
 d.addEventListener("DOMContentloaded", getAdvice());
+
+// Add listener to btn
+d.addEventListener("click", (e) => {
+	if (e.target.matches(".dice-btn") || e.target.matches(".dice-btn img")) {
+		e.preventDefault();
+		getAdvice();
+	}
+});
