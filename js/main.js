@@ -14,7 +14,7 @@ console.log("hello");
 const d = document;
 const URL_ADVICE = "https://api.adviceslip.com/advice";
 let $adviceNumber = d.querySelector(".advice-card__number");
-let $adviceText = d.querySelector("advice-card__text");
+let $adviceText = d.querySelector(".advice-card__text");
 
 /* ------ FUNCTIONS ------ */
 const getAdvice = async () => {
@@ -22,17 +22,21 @@ const getAdvice = async () => {
 		let res = await fetch(URL_ADVICE, {
 			method: "GET",
 		});
+		// Converts response to JSON
 		let data = await res.json();
-		console.log(data);
-
+		// Gets the slip obj from the data
+		let adviceObj = data.slip;
+		
 		if (!res.ok) {
 			throw {
 				status: res.status,
 				statusText: res.statusText,
 			};
 		}
-		console.log(data.id);
-		// $adviceNumber.textContent = `Advice #${slip.id}`;
+
+		// Adds advice number and text to DOM
+		$adviceNumber.textContent = `Advice #${adviceObj.id}`;
+		$adviceText.textContent = `"${adviceObj.advice}"`;
 	} catch (err) {
 		let message = err.statusText || "An error occurred";
 		console.log(message);
@@ -40,4 +44,5 @@ const getAdvice = async () => {
 };
 
 /* ------ CODE ------ */
+// Gets an advice on DOM load
 d.addEventListener("DOMContentloaded", getAdvice());
