@@ -39,7 +39,9 @@
     bottom: -28px;
 
     &:hover{
-        box-shadow: 0px 0px 1rem 1rem $lightGreen;
+        box-shadow: 
+            0px 0px 1rem 1rem $lightGreen,
+            0px 0px 0.5rem 0.5rem $neonGreenShadow;
     }
 
     img {
