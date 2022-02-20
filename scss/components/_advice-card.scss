@@ -37,11 +37,13 @@
     background-color: $neonGreen;
     border-radius: 50%;
     bottom: -28px;
-
+    transition: all 0.2s ease-out;
+    
     &:hover{
         box-shadow: 
             0px 0px 1rem 1rem $lightGreen,
             0px 0px 0.5rem 0.5rem $neonGreenShadow;
+        transition: all 0.2s ease-out;
     }
 
     img {
@@ -52,10 +54,15 @@
 
 .img-divider {
     margin-bottom: 2rem;
+    
+    img {
+        margin: 0 auto;
+    }
 }
 
-/* @media(min-width: 1024px) {
+@media(min-width: 1024px) {
     .advice-card {
-        max-width: 30rem;
+        width: 31.7rem;
+        max-width: 31.7rem;
     }
-} */
+}

@@ -3,6 +3,11 @@ const d = document;
 const URL_ADVICE = "https://api.adviceslip.com/advice";
 let $adviceNumber = d.querySelector(".advice-card__number");
 let $adviceText = d.querySelector(".advice-card__text");
+// Variables for responsiveContent()
+let $imgDivider = d.getElementById("img-divider");
+let breakpoint = "(min-width: 1024px)";
+let desktopContent = `<img  src="./images/pattern-divider-desktop.svg" alt="Pattern divider" />`;
+let mobileContent = `<img  src="./images/pattern-divider-mobile.svg" alt="Pattern divider" />`;
 
 /* ------ FUNCTIONS ------ */
 const getAdvice = async () => {
@@ -31,9 +36,28 @@ const getAdvice = async () => {
 	}
 };
 
+// Function to display a different image depending on the viewport size
+const responsiveContent = (domElement, breakpointSize, mobileContent, desktopContent) => {
+	let breakpoint = window.matchMedia(breakpointSize);
+
+	const responsive = (e) => {
+		if (e.matches) {
+			// Al menos 1024px
+			domElement.innerHTML = desktopContent;
+		} else {
+			// Menos de 1024px
+			domElement.innerHTML = mobileContent;
+		}
+	};
+
+	breakpoint.addListener(responsive);
+	responsive(breakpoint);
+};
+
 /* ------ CODE ------ */
 // Gets an advice on DOM load
 d.addEventListener("DOMContentloaded", getAdvice());
+d.addEventListener("DOMContentloaded", responsiveContent($imgDivider, breakpoint, mobileContent, desktopContent));
 
 // Add listener to btn
 d.addEventListener("click", (e) => {
